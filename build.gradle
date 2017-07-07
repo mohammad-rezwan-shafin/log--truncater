@@ -1,0 +1,46 @@
+apply plugin: "application"
+apply plugin: "java"
+apply plugin: "org.springframework.boot"
+apply plugin: "groovy"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = "org.shafin.logtruncater.core.config.Application"
+
+jar {
+    baseName = "log-truncater"
+    version =  "0.1.0"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+} 
+ 
+dependencies {
+    compileOnly ("org.projectlombok:lombok:1.16.12")
+    compile ("org.springframework.boot:spring-boot-starter-web:") {
+        exclude module : "org.springframework.boot:spring-boot-starter-data-jpa"
+        exclude module : "org.springframework.boot:spring-boot-starter-tomcat"
+    }
+    compile ("org.springframework.boot:spring-boot-starter-jetty:")
+    compile ("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:")
+
+    testCompile ("org.springframework.boot:spring-boot-starter-test:1.5.2.RELEASE") {
+        exclude module : "org.springframework.boot:spring-boot-starter-data-jpa"
+        exclude module : "org.springframework.boot:spring-boot-starter-tomcat"
+    }
+    testCompile ("org.projectlombok:lombok:1.16.12")
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE"
+    }
+} 
+
