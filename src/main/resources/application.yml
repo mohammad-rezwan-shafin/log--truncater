@@ -2,9 +2,6 @@
 # default settings
 spring:
     profiles:
-    mvc.view:
-        prefix: /WEB-INF/jsp/
-        suffix: .jsp
                 
 application:
     name: LogTruncater
