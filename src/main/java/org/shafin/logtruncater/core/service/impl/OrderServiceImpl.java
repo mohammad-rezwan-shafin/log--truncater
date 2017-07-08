@@ -16,8 +16,14 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
-    public String testMethod(String input) {
-        log.info("Request received with ={}", input);
-        return "<OrderServiceImpl say:> Good for you!" ;
+    @Override
+    public String order(String input) {
+        log.info("Order Request received with ={}", input);
+        StringBuilder stringBuilder = new StringBuilder();
+        
+        for (int i=0;i<1000;i++) {
+            stringBuilder.append("0123456789");
+        }
+        return stringBuilder.toString() ;
     }
 }

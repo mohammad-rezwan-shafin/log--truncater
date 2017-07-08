@@ -10,5 +10,5 @@ package org.shafin.logtruncater.core.service;
  * @author shafin
  */
 public interface OrderService {
-    String testMethod(String input);
+    String order(String input);
 }

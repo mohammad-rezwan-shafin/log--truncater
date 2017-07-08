@@ -8,6 +8,7 @@ package org.shafin.logtruncater.controller;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 
 import org.shafin.logtruncater.core.service.OrderService;
 import org.shafin.logtruncater.core.service.TruncateService;
@@ -40,9 +41,19 @@ public class SubscriptionController {
     }
     
     private String getOrderDetails(HttpServletRequest request) {
-        String responseText = orderService.testMethod("input in controller ");
+        StringBuilder strBuilder = new StringBuilder();
+        request.getParameterMap().forEach(
+            (key, val) -> {
+                strBuilder.append(key);
+                strBuilder.append("=");
+                strBuilder.append(val.toString());
+                strBuilder.append(",");
+            }
+        );
+        
+        String responseText = orderService.order(strBuilder.toString());
         log.info(responseText);
-        return "getOrderDetails";
+        return responseText;
     }
     
     private String truncate(String strData, int limitSize) {
