@@ -41,7 +41,9 @@ After running
 Please hit following URL using any browser.
 
 http://localhost:8080/   (automatically redirection will occur else please click the link.)
+
 or
+
 http://localhost:8080/subscribe
 
 in the log folder/directory please look for the "application.log" for log truncate testing 
@@ -49,9 +51,15 @@ in the log folder/directory please look for the "application.log" for log trunca
 ------------------------------------
 Testing and Development Environments
 ------------------------------------
+
 OpenSUSE Leap 42.2  (Linux Kernel 4.4.62-18.6-default)
+
 JRE & JDK = OpenJDK 1.8.0_121 (64 bit Server VM)
+
 Gradle Version = 3.4.1
+
 SptingBoot Version = 1.5.2.RELEASE
+
 SpringFramework Version = v4.3.7.RELEASE
+
 Embedded Tomcat Version = 8.5.11
