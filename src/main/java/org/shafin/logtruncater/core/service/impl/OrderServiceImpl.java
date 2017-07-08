@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class OrderServiceImpl implements OrderService {
     @Override
     public String order(String input) {
-        log.info("Order Request received with ={}", input);
+        log.info("Order Request received with => {}", input);
         StringBuilder stringBuilder = new StringBuilder();
         
         for (int i=0;i<1000;i++) {

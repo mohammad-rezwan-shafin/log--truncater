@@ -46,7 +46,10 @@ public class SubscriptionController {
             (key, val) -> {
                 strBuilder.append(key);
                 strBuilder.append("=");
-                strBuilder.append(val.toString());
+                for ( String str: (String []) val) {
+                    strBuilder.append( str );
+                    strBuilder.append( " " );
+                }
                 strBuilder.append(",");
             }
         );
