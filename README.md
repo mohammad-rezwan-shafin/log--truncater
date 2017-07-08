@@ -7,8 +7,11 @@ To compile and run the Project
 ------------------------------
 
 Followings are needed.
+
 -> Java version 8 or greater (http://openjdk.java.net/install/  or http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
 -> Gradle 3 or greater (https://gradle.org/install/)
+
 -> Internet Connection on the Build Computer as other libraries will be downloaded from Maven repo
 
 
