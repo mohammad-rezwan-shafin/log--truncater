@@ -8,7 +8,6 @@ package org.shafin.logtruncater.controller;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
 
 import org.shafin.logtruncater.core.service.OrderService;
 import org.shafin.logtruncater.core.service.TruncateService;
