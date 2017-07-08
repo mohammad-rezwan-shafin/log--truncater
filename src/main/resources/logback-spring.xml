@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!--    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>[%thread] %logger - %X %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="EVERYTHING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/everyting.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./log/everyting-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>TRACE</level>
+        </filter>
+         <encoder>
+            <pattern>%date [%thread] %-5level %logger - %X %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="APPLICATION_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/application.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./log/application-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>TRACE</level>
+        </filter>
+         <encoder>
+            <pattern>%date [%thread] %-5level %logger - %X %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SPRING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/spring.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./log/spring-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>TRACE</level>
+        </filter>
+         <encoder>
+            <pattern>%date [%thread] %-5level %logger - %X %msg %n</pattern>
+        </encoder>
+    </appender>
+    
+    <logger name="org.shafin" level="TRACE" >
+        <appender-ref ref="APPLICATION_FILE" />
+    </logger>
+    <logger name="org.springframework" level="DEBUG" >
+        <appender-ref ref="SPRING_FILE" />
+    </logger>
+    
+    <logger name="org.springframework.jndi" level="OFF" >
+        <appender-ref ref="SPRING_FILE" />
+        <appender-ref ref="APPLICATION_FILE" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="EVERYTHING_FILE" />
+    </root>
+
+</configuration>

@@ -1,0 +1,24 @@
+# application.yml
+# default settings
+spring:
+    profiles:
+    mvc.view:
+        prefix: /WEB-INF/jsp/
+        suffix: .jsp
+                
+application:
+    name: LogTruncater
+    baseContext: log-truncater-0.1.0
+    title: Log Truncater Testing
+    version: 0.1
+    
+org.shafin.logtruncater:
+    config:
+        log-truncate-replacement-text: ... (truncated) ...
+
+# This is the Jetty HTTP Server 
+server:
+    # Jetty HTTP Server Port
+    port: 8080
+            
+---
