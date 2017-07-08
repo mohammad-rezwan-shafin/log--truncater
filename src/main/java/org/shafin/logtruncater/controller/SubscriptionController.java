@@ -36,7 +36,7 @@ public class SubscriptionController {
         String orderDetails = getOrderDetails(request);
         String truncatedOrderDetails = truncate(orderDetails, 250);
         log(truncatedOrderDetails);
-        return "Success";
+        return "/Success.html";
     }
     
     private String getOrderDetails(HttpServletRequest request) {
